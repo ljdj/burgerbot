@@ -142,7 +142,7 @@ bot.on('message', message => {
           .setTimestamp()//n'est pas obligatoire
         message.guild.channels.find("name", "sondage").send(embed)
           .then(function (message) {
-            message.react("✔")
+            message.react("\u2611")
             message.react("✖")
           }).catch(function () {
 
