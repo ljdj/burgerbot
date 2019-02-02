@@ -10,7 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "^11.4.2",
-    "emoji": "^0.3.2",
     "lowdb": "^1.0.0"
   }
 }
