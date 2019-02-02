@@ -143,7 +143,7 @@ bot.on('message', message => {
         message.guild.channels.find("name", "sondage").send(embed)
           .then(function (message) {
             message.react("\u2705")
-            message.react("✖")
+            message.react("\u274C")
           }).catch(function () {
 
         });
