@@ -26,6 +26,42 @@ bot.on('guildMemberAdd', member => {
 })
 
 bot.on('message', message => {
+  
+  //créer un 8ball
+    if (message.author.equals(bot.user)) return;
+
+    if (!message.content.startsWith(prefix)) return;
+
+    var args = message.content.substring(prefix.length).split(" ");
+
+    switch (args[0].toLowerCase()) {
+      case "roll":
+        var roll = Math.floor(Math.random() * args[1]) +1;
+        if (!roll) return message.reply("Entre un numéro")
+        message.channel.send("Je choisis le numéro " + roll + " !");
+        break;
+      case "8ball":
+        let args = message.content.split(" ").slice(1);
+        let tte = args.join(" ");
+        if (!tte) {
+          return message.reply("Merci de poser une question :8ball:");
+        }
+
+        var replys = [
+          "Oui",
+          "Non",
+          "Je sais pas",
+          "Peut être"
+        ];
+        
+        let reponse = (replys[Math.floor(Math.random() * replys.length)])
+        var bembed = new Discord.RichEmbed()
+          .setDescription(":8ball: 8ball")
+          .addField("Question", tte)
+          .addField("Reponse", reponse)
+        message.channel.send(bembed);
+    }
+  
   // commande help
   if (message.content === prefix + "help") {
     message.channel.send("Liste des commandes: \n *burgerbot \n *fabriquant \n *embed \n *xp \n *kick \n *ban \n *infodiscord \n *sondage \n *roll \n *8ball")
@@ -157,41 +193,6 @@ bot.on('message', message => {
       } else {
         return message.reply("Tu n'as pas la permission.");
       }
-    }
-    
-    //créer un 8ball
-    if (message.author.equals(bot.user)) return;
-
-    if (!message.content.startsWith(prefix)) return;
-
-    var args = message.content.substring(prefix.length).split(" ");
-
-    switch (args[0].toLowerCase()) {
-      case "roll":
-        var roll = Math.floor(Math.random() * args[1]) +1;
-        if (!roll) return message.reply("Entre un numéro")
-        message.channel.send("Je choisis le numéro " + roll + " !");
-        break;
-      case "8ball":
-        let args = message.content.split(" ").slice(1);
-        let tte = args.join(" ");
-        if (!tte) {
-          return message.reply("Merci de poser une question :8ball:");
-        }
-
-        var replys = [
-          "Oui",
-          "Non",
-          "Je sais pas",
-          "Peut être"
-        ];
-        
-        let reponse = (replys[Math.floor(Math.random() * replys.length)])
-        var bembed = new Discord.RichEmbed()
-          .setDescription(":8ball: 8ball")
-          .addField("Question", tte)
-          .addField("Reponse", reponse)
-        message.channel.send(bembed);
-    }
+    }  
   }
 });
