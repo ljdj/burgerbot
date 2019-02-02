@@ -21,7 +21,7 @@ bot.login(process.env.TOKEN);
 bot.on('message', message => {
   // commande help
   if (message.content === prefix + "help") {
-    message.channel.send("Liste des commandes: \n *burgerbot \n *fabriquant \n *embed \n *xp \n *kick \n *ban");
+    message.channel.send("Liste des commandes: \n *burgerbot \n *fabriquant \n *embed \n *xp \n *kick \n *ban \n *infodiscord \n *sondage");
     console.log("Commande help effectué")
   }
 
