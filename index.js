@@ -28,7 +28,7 @@ bot.on('guildMemberAdd', member => {
 bot.on('message', message => {
   // commande help
   if (message.content === prefix + "help") {
-    message.channel.send("Liste des commandes: \n *burgerbot \n *fabriquant \n *embed \n *xp \n *kick \n *ban \n *infodiscord \n *sondage \n *roll \n *8ball
+    message.channel.send("Liste des commandes: \n *burgerbot \n *fabriquant \n *embed \n *xp \n *kick \n *ban \n *infodiscord \n *sondage \n *roll \n *8ball")
     console.log("Commande help effectué")
   }
 
