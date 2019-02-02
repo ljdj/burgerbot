@@ -17,6 +17,13 @@ bot.on('ready', function () {
 
 bot.login(process.env.TOKEN);
 
+// Ajoute le role
+bot.on('guildMemberAdd', member => {
+  member.guild.channels.find("name", "général").send(`Bienvenue ${member}`)
+  // Ajoute le role
+  var role = member.guild.roles.find('name', 'PIZZA');
+  member.addRole(role)
+})
 
 bot.on('message', message => {
   // commande help
